@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1728">
+
+  <!-- Fontawesome cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+    integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <title>Sky Portal | Current Weather</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="bg-glow glow1"></div>
+  <div class="bg-glow glow2"></div>
+  <div class="container">
+    <nav class="site-nav">
+      <h1 class="brand">SKY PORTAL<span>.</span></h1>
+      <form class="city-search" id="city-search">
+        <input type="text" id="city-input" placeholder="Search a city..." aria-label="Enter city name"
+          autocomplete="off">
+        <button type="submit" aria-label="Search city">
+          <span aria-hidden="true"> <i class="fa-solid fa-magnifying-glass"></i></span>
+        </button>
+      </form>
+    </nav>
+    <p id="search-status" role="status" aria-live="polite"></p>
+
+    <main>
+      <div class="weather-hero ">
+        <section class="hero-stat">
+          <div class="weather-info">
+            <p id="city-name" class="city">Kakkanad, India</p>
+            <h2 id="temperature" class="temperature">29.2<span>°</span></h2>
+            <p id="weather-description" class="weather-description">Light Rain</p>
+            <div class="weather-meta">
+              <span id="feels-like">Feels like 35°</span>
+              <span class="meta-divider">•</span>
+              <span id="cloud-cover">Cloud cover 100%</span>
+            </div>
+          </div>
+
+        </section>
+        <div class="stats">
+          <article class="card">
+            <i class="fa-solid fa-wind card-icon"></i>
+            <p class="card-label">Wind Speed</p>
+            <h3 id="windspeed">3.6 <span>km/h</span></h3>
+            <p id="winddirection" class="card-note">From southeast</p>
+          </article>
+
+          <article class="card">
+            <i class="fa-solid fa-droplet card-icon"></i>
+            <p class="card-label">Humidity</p>
+            <h3 id="humidity">79<span>%</span></h3>
+            <p class="card-note">Moist air</p>
+          </article>
+
+          <article class="card">
+            <i class="fa-solid fa-eye card-icon"></i>
+            <p class="card-label">Visibility</p>
+            <h3 id="visibility">10 <span>km</span></h3>
+            <p class="card-note">Good visibility</p>
+          </article>
+
+          <article class="card">
+            <i class="fa-solid fa-cloud  card-icon"></i>
+            <p class="card-label">Cloud Cover</p>
+            <h3 id="cloudcard">100<span>%</span></h3>
+            <p id="cloudnote" class="card-note">Fully overcast</p>
+          </article>
+        </div>
+      </div>
+   
+      <section class="weather-details">
+        <section class="additional-weather">
+          <h3>Atmospheric Conditions</h3>
+          <div class="atmosphere-panel">
+            <div class="atmosphere-row">
+              <span class="atmosphere-label">Rainfall</span>
+              <span id="rainfall" class="atmosphere-value">0.11 mm</span>
+            </div>
+
+            <div class="atmosphere-row">
+              <span class="atmosphere-label">Air Pressure</span>
+              <span id="pressure" class="atmosphere-value">1012 hPa</span>
+            </div>
+
+            <div class="atmosphere-row">
+              <span class="atmosphere-label">Wind Gust</span>
+              <span id="windgust" class="atmosphere-value">6.6 km/h</span>
+            </div>
+
+          </div>
+        </section>
+      </section>
+      <section class="sun-times">
+        <div class="sun-times-heading">
+          <div>
+            <p class="section-eyebrow">DAYLIGHT</p>
+            <h2>Sunrise &amp; Sunset</h2>
+          </div>
+        </div>
+
+        <div class="sun-panel">
+          <div class="sun-arc">
+            <svg viewBox="0 0 400 130" aria-hidden="true">
+              <defs>
+                <linearGradient id="arc-gradient" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="0" stop-color="#ffd580" />
+                  <stop offset="1" stop-color="#d8b4fe" />
+                </linearGradient>
+              </defs>
+              <line class="horizon" x1="0" y1="110" x2="400" y2="110" />
+              <path id="sun-track" class="arc-track" d="M 30 110 Q 200 -30 370 110" />
+              <path id="sun-progress" class="arc-progress" d="M 30 110 Q 200 -30 370 110" />
+              <circle id="sun-dot" class="sun-dot" r="8" cx="30" cy="110" />
+            </svg>
+          </div>
+
+          <div class="sun-details">
+            <div class="sun-item">
+              <span class="sun-time-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 19h18M7 19a5 5 0 0 1 10 0M12 3v5M12 3l-2 2M12 3l2 2" />
+                </svg>
+              </span>
+              <div>
+                <p>Sunrise</p>
+                <h3 id="sunrise-time">--:--</h3>
+              </div>
+            </div>
+
+            <div class="sun-item sun-length">
+              <p>Daylight</p>
+              <h3 id="day-length">--h --m</h3>
+            </div>
+
+            <div class="sun-item sun-item-end">
+              <div>
+                <p>Sunset</p>
+                <h3 id="sunset-time">--:--</h3>
+              </div>
+              <span class="sun-time-icon sunset-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M3 19h18M7 19a5 5 0 0 1 10 0M12 8V3M12 8l-2-2M12 8l2-2" />
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>SKY PORTAL <span>•</span> Your weather, at a glance.</p>
+      <p>Weather information provided by OpenWeather.</p>
+    </footer>
+
+  </div>
+  <script src="./main.js"></script>
+</body>
+
+</html>
